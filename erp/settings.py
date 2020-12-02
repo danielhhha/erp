@@ -25,8 +25,9 @@ SECRET_KEY = 'e^9#^u95^av$2^3_jj-=!i44o7du$uaw53w-btb-5kd#=*lb6m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -37,11 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'erp_backend'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -118,3 +121,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MONGO_CONFIG = {
+    'NAME': 'erp_admin',
+    'PASSWORD': 'DDNISLKDeee',
+    'HOST': '127.0.0.1',
+    'PORT': '27017'
+}
+MONGO_DATABASE_NAME = 'erp'
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'erp',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+    },
+    'db1': {
+        'ENGINE':None,
+    }
+}
+
+import mongoengine
+conn = mongoengine.connect(MONGO_DATABASE_NAME)
