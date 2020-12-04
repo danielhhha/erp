@@ -1,3 +1,2 @@
-from django.db import models
+from erp_backend.model.user import * 
 
-# Create your models here.
