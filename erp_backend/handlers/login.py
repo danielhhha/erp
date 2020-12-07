@@ -1,4 +1,6 @@
 
 
-def login(request,*args,**kwargs):
-    return JsonResponse({},safe=False)
+from django.http import JsonResponse
+
+def userLogin(self, request):
+    return JsonResponse({"data": "hello"})

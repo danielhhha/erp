@@ -1,3 +1,5 @@
 'use strict'
-export const NODE_ENV = '"production"'
-export const API_BASE = "//localhost:8000/api"
+module.export = {
+  NODE_ENV: "production",
+  VUE_APP_API_BASE: "//localhost:8000/api"
+} 

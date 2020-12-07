@@ -12,6 +12,9 @@
         </a>
       </li>
       <li>
+        <el-button @click="login">hhhhhhhhhhh</el-button>
+      </li>
+      <li>
         <a
           href="https://forum.vuejs.org"
           target="_blank"
@@ -90,7 +93,17 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
-  }
+  },
+  methods: {
+    login: function(){
+      alert(1)
+      this.api.login({}).then(
+        res => {
+          this.noty({type:"error", text:"hello"})
+        }
+      )
+    },
+  },
 }
 </script>
 
