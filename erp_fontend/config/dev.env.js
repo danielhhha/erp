@@ -1,8 +1,9 @@
 'use strict'
-import merge from 'webpack-merge'
-import prodEnv from './prod.env'
-
-export default merge(prodEnv, {
-  NODE_ENV: '"development"',
-  API_BASE: "//localhost:8000/api"
+const merge = require('webpack-merge');
+// 导入prod.env.js配置文件
+const prodEnv = require('./prod.env');
+// 将两个配置对象合并，最终结果是 NODE_ENV: '"development"'
+module.exports = merge(prodEnv, {
+    NODE_ENV: '"development"',
+    VUE_APP_API_BASE: '"//localhost:8000/api"'
 })
